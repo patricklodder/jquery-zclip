@@ -1,5 +1,5 @@
 /*
- * zClip :: jQuery ZeroClipboard v1.1.1
+ * zClip :: jQuery ZeroClipboard v1.1.2
  * http://steamdev.com/zclip
  *
  * Copyright 2011, SteamDev
@@ -112,11 +112,16 @@
                 params = params.toLowerCase();
                 var zclipId = o.data('zclipId');
                 var clipElm = $('#' + zclipId + '.zclip');
+                var clientId = clipElm.attr('id').replace(/^.*_/g, '') || null; 
 
                 if (params == "remove") {
 
                     clipElm.remove();
                     o.removeClass('active hover');
+                    o.unbind('zClip_copy');
+                    o.unbind('zClip_beforeCopy');
+                    o.unbind('zClip_afterCopy');
+                    ZeroClipboard.unregister(clientId);
 
                 } else if (params == "hide") {
 
@@ -210,6 +215,12 @@ var ZeroClipboard = {
     register: function (id, client) {
         // register new client to receive events
         this.clients[id] = client;
+    },
+    
+    unregister: function (id) {
+    	if (typeof(id) === 'number' && this.clients.hasOwnProperty(id)) {
+    		delete this.clients[id];
+    	}
     },
 
     getDOMObjectPosition: function (obj, stopObj) {
