@@ -1,0 +1,4 @@
+jquery-zclip
+============
+
+jQuery ZeroClipboard
