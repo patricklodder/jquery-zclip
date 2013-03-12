@@ -199,6 +199,10 @@ var ZeroClipboard = {
         return thingy;
     },
 
+    registerToGlobal: function (glob) {
+	if (typeof(glob) === 'object') { glob.ZeroClipboard = ZeroClipboard; }
+    },
+
     setMoviePath: function (path) {
         // set path to ZeroClipboard.swf
         this.moviePath = path;
@@ -503,5 +507,7 @@ ZeroClipboard.Client.prototype = {
     }
 
 };	
+
+if (typeof(window) === 'object') { ZeroClipboard.registerToGlobal(window); }
 
 
