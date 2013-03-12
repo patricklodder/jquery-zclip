@@ -10,13 +10,13 @@
  */
 
 
-(function ($) {
+(function (jQuery) {
 
-    $.fn.zclip = function (params) {
+    jQuery.fn.zclip = function (params) {
 
         if (typeof params == "object" && !params.length) {
 
-            var settings = $.extend({
+            var settings = jQuery.extend({
 
                 path: 'ZeroClipboard.swf',
                 copy: null,
@@ -31,20 +31,20 @@
 
             return this.each(function () {
 
-                var o = $(this);
+                var o = jQuery(this);
 
-                if (o.is(':visible') && (typeof settings.copy == 'string' || $.isFunction(settings.copy))) {
+                if (o.is(':visible') && (typeof settings.copy == 'string' || jQuery.isFunction(settings.copy))) {
 
                     ZeroClipboard.setMoviePath(settings.path);
                     var clip = new ZeroClipboard.Client();
                     
-                    if($.isFunction(settings.copy)){
+                    if(jQuery.isFunction(settings.copy)){
                     	o.bind('zClip_copy',settings.copy);
                     }
-                    if($.isFunction(settings.beforeCopy)){
+                    if(jQuery.isFunction(settings.beforeCopy)){
                     	o.bind('zClip_beforeCopy',settings.beforeCopy);
                     }
-                    if($.isFunction(settings.afterCopy)){
+                    if(jQuery.isFunction(settings.afterCopy)){
                     	o.bind('zClip_afterCopy',settings.afterCopy);
                     }                    
 
@@ -60,13 +60,13 @@
 
                         o.trigger('mousedown');
                         
-			if(!$.isFunction(settings.copy)){
+			if(!jQuery.isFunction(settings.copy)){
 			   clip.setText(settings.copy);
 			} else {
 			   clip.setText(o.triggerHandler('zClip_copy'));
 			}                        
                         
-                        if ($.isFunction(settings.beforeCopy)) {
+                        if (jQuery.isFunction(settings.beforeCopy)) {
                             o.trigger('zClip_beforeCopy');                            
                         }
 
@@ -74,7 +74,7 @@
 
                     clip.addEventListener('complete', function (client, text) {
 
-                        if ($.isFunction(settings.afterCopy)) {
+                        if (jQuery.isFunction(settings.afterCopy)) {
                             
                             o.trigger('zClip_afterCopy');
 
@@ -96,7 +96,7 @@
 					
                     clip.glue(o[0], o.parent()[0]);
 					
-		    $(window).bind('load resize',function(){clip.reposition();});
+		    jQuery(window).bind('load resize',function(){clip.reposition();});
 					
 
                 }
@@ -107,11 +107,11 @@
 
             return this.each(function () {
 
-                var o = $(this);
+                var o = jQuery(this);
 
                 params = params.toLowerCase();
                 var zclipId = o.data('zclipId');
-                var clipElm = $('#' + zclipId + '.zclip');
+                var clipElm = jQuery('#' + zclipId + '.zclip');
                 var clientId = clipElm.attr('id').replace(/^.*_/g, '') || null; 
 
                 if (params == "remove") {
