@@ -1,5 +1,5 @@
 /*
- * zClip :: jQuery ZeroClipboard v1.1.2
+ * zClip :: jQuery ZeroClipboard v1.1.3
  * http://steamdev.com/zclip
  *
  * Copyright 2011, SteamDev
