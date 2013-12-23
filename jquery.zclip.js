@@ -59,6 +59,10 @@
                     clip.addEventListener('mouseDown', function (client) {
 
                         o.trigger('mousedown');
+
+                        if (jQuery.isFunction(settings.beforeCopy)) {
+                            o.trigger('zClip_beforeCopy');                            
+                        }
                         
 			if(!jQuery.isFunction(settings.copy)){
 			   clip.setText(settings.copy);
@@ -66,10 +70,6 @@
 			   clip.setText(o.triggerHandler('zClip_copy'));
 			}                        
                         
-                        if (jQuery.isFunction(settings.beforeCopy)) {
-                            o.trigger('zClip_beforeCopy');                            
-                        }
-
                     });
 
                     clip.addEventListener('complete', function (client, text) {
