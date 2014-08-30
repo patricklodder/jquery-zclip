@@ -484,7 +484,7 @@ ZeroClipboard.Client.prototype = {
             for (var idx = 0, len = this.handlers[eventName].length; idx < len; idx++) {
                 var func = this.handlers[eventName][idx];
 
-                if (typeof(func) == 'function') {
+                if (jQuery.isFunction(func)) {
                     // actual function reference
                     func(this, args);
                 } else if ((typeof(func) == 'object') && (func.length == 2)) {
