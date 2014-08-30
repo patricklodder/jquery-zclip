@@ -1,7 +1,7 @@
 {
   "name": "jquery-zclip",
   "description": "JQuery wrapper library for ZeroClipboard. Provides an easy way to copy text to the clipboard using an invisible Adobe Flash movie and a jQuery interface.",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "main": ["./jquery.zclip.js", "./ZeroClipboard.swf"],
   "keywords": ["flash","clipboard","copy","cut","paste","zclip","clip","clippy", "zeroclipboard", "jquery"],
   "license": "http://www.opensource.org/licenses/mit-license.php",
