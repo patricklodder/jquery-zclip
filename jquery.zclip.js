@@ -157,7 +157,7 @@ var ZeroClipboard = {
         // a string or function that returns string
 
         beforeCopy: null,
-        afterCopy: null,
+        afterCopy: null
     },
 
     jQuery: function (thingy) {
