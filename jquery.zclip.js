@@ -1,12 +1,11 @@
 /*
  * zClip :: jQuery ZeroClipboard v1.1.5
- * http://steamdev.com/zclip
+ * Originally forked from: http://steamdev.com/zclip
  *
  * Copyright 2011, SteamDev
- * Released under the MIT license.
- * http://www.opensource.org/licenses/mit-license.php
  *
- * Date: Wed Jun 01, 2011
+ * Released under the MIT license.
+ * https://github.com/patricklodder/jquery-zclip/blob/master/LICENSE
  */
 
 (function (jQuery) {
