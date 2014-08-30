@@ -15,17 +15,7 @@
 
         if (typeof params == "object" && !params.length) {
 
-            var settings = jQuery.extend({
-
-                path: 'ZeroClipboard.swf',
-                copy: null,
-                beforeCopy: null,
-                afterCopy: null,
-                clickAfter: true,
-                setHandCursor: true,
-                setCSSEffects: true
-
-            }, params);
+            var settings = jQuery.extend({}, ZeroClipboard.defaults, params);
 
             return this.each(function () {
 
@@ -156,6 +146,15 @@ var ZeroClipboard = {
     // URL to movie
     nextId: 1,
     // ID of next movie
+
+    defaults: {
+        path: 'ZeroClipboard.swf',
+        clickAfter: true,
+        setHandCursor: true,
+        setCSSEffects: true,
+        afterCopy: null
+    },
+
     jQuery: function (thingy) {
         // simple DOM lookup utility function
         if (typeof(thingy) == 'string') thingy = document.getElementById(thingy);
