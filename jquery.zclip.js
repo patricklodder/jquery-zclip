@@ -152,7 +152,12 @@ var ZeroClipboard = {
         clickAfter: true,
         setHandCursor: true,
         setCSSEffects: true,
-        afterCopy: null
+
+        copy: null,
+        // a string or function that returns string
+
+        beforeCopy: null,
+        afterCopy: null,
     },
 
     jQuery: function (thingy) {
