@@ -136,7 +136,7 @@
 // ZeroClipboard
 // Simple Set Clipboard System
 // Author: Joseph Huckaby
-var ZeroClipboard = {
+ZeroClipboard = {
 
     version: "1.0.7",
     clients: {},
